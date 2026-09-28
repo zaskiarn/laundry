@@ -13,6 +13,6 @@ if($cek > 0){
     $_SESSION['status'] = "login";
     header("location:admin/index.php");
 }else{
-    header("location:index.php?pesan=gagal");
+    header("location:login_form.php?pesan=gagal");
 }
 ?>
