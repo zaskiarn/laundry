@@ -550,7 +550,7 @@ $query_pelanggan = mysqli_query($koneksi, "SELECT pelanggan_nama, pelanggan_alam
         </div>
     </section>
 
-    <footer style="background-color: #0f172a; color: #94a3b8; padding: 50px 0 25px;">
+    <footer style="background-color: #0f172a; color: #94a3b8; padding: 35px 0 25px;">
         <div class="container text-center">
             <p class="mb-0">&copy; <?php echo date('Y'); ?> FreshClean Laundry. All rights reserved.</p>
         </div>
