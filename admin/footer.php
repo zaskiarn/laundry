@@ -1,5 +1,5 @@
 <!-- Footer Dashboard Admin (Tinggi & Padding Persis Landing Page) -->
-    <footer style="background-color: #0f172a; color: #94a3b8; padding: 50px 0 25px;">
+    <footer style="color: #94a3b8; padding: 30px 0 25px;">
         <div class="container text-center">
             <p class="mb-0">&copy; <?php echo date('Y'); ?> FreshClean Laundry. All rights reserved.</p>
         </div>
