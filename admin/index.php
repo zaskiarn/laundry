@@ -1,5 +1,6 @@
 <?php 
     include '../koneksi.php';
+    global $koneksi;
     include 'header.php'
 ?>
 
@@ -73,6 +74,7 @@
                                 <i class="glyphicon glyphicon-ok-circle"></i>
                                 <span class="pull-right">
                                     <?php
+                                        include '../koneksi.php';
                                         $proses = mysqli_query($koneksi, "select * from transaksi where transaksi_status='2'");
                                         echo mysqli_num_rows($proses);
                                     ?>
