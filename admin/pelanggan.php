@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php';
+global $koneksi;
+?>
 
 <div class="container">
     <div class="panel">
@@ -33,7 +36,7 @@
                         Edit</a>
                     <a href="pelanggan_hapus.php?id=<?php echo $d['pelanggan_id']; ?>" class="btn btn-sm btn-danger">
                         Hapus</a>
-                <td>
+                </td>
             </tr>
             <?php
                 }
