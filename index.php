@@ -137,7 +137,7 @@ $query_pelanggan = mysqli_query($koneksi, "SELECT pelanggan_nama, pelanggan_alam
             font-weight: 600;
             font-size: 0.95rem;
             padding: 10px 20px;
-            border-radius: 50px; /* Bikin melengkung penuh (pill shape) */
+            border-radius: 50px;
             border: 1px solid #e2e8f0;
             display: inline-flex;
             align-items: center;

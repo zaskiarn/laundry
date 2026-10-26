@@ -128,6 +128,8 @@ $halamanAktif = basename($_SERVER['PHP_SELF']);
 							<ul class="dropdown-menu">
 								<li><a href="pengaturan_harga.php"><span class="glyphicon glyphicon-usd"></span>Pengaturan Harga</a></li>
 								<li><a href="ubah_password.php"><span class="glyphicon glyphicon-lock"></span>Ganti Password</a></li>
+								<li><a href="sub_user.php"><span class="glyphicon glyphicon-user"></span>Sub-User</a></li>
+
 							</ul>
 						</li>
 						<li class="<?php echo $halamanAktif === 'logout.php' ? 'active' : ''; ?>">
