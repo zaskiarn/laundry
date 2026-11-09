@@ -6,7 +6,7 @@
     $hp = $_POST['hp'];
     $alamat = $_POST['alamat'];
 
-    mysqli_query($koneksi, "insert into pelanggan values('','$nama','$hp','$alamat')");
+    mysqli_query($koneksi, "insert into pelanggan values(NULL,'$nama','$hp','$alamat')");
 
     header("location:pelanggan.php");
 ?>

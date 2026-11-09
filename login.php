@@ -3,9 +3,11 @@ session_start();
 include 'koneksi.php';
 
 $username = $_POST['username'];
-$password = md5($_POST['password']);
+$password = $_POST['password'];
+$password_md5 = md5($password);
 
-$data = mysqli_query($koneksi,"select * from admin where username = '$username' and password = '$password'");
+$data = mysqli_query($koneksi, "select * from admin where username = '$username' and password = '$password_md5'");
+
 $cek = mysqli_num_rows($data);
 
 if($cek > 0){
