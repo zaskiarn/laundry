@@ -9,10 +9,10 @@ global $koneksi;
             <h4>Data Transaksi</h4>
         </div>
         <div class="panel-body">
-            <a href="transaksi_tambah.php" class="btn btn-sm btn-info pull-right">Tambah</a>
+            <a href="transaksi_tambah.php" class="btn btn-xs btn-info pull-right">Tambah Transaksi</a>
 
-        <br><br>
-        <table class="table table-bordered table-striped">
+            <br><br>
+            <table class="table table-bodered table-striped">
             <tr>
                 <th width="1%">No</th>
                 <th>Invoice</th>
@@ -52,11 +52,11 @@ global $koneksi;
                         }
                     ?>
                 </td>
-                <td><a href="transaksi_invoice.php?id=<?php echo $d['transaksi_id']; ?>" class="btn btn-sm btn-warning">INVOICE</a>
+                <td><a href="transaksi_invoice.php?id=<?php echo $d['transaksi_id']; ?>" class="btn btn-sm btn-warning">Invoice</a>
                     <a href="transaksi_edit.php?id=<?php echo $d['transaksi_id']; ?>" class="btn btn-sm btn-info">
                         Edit</a>
                     <a href="transaksi_hapus.php?id=<?php echo $d['transaksi_id']; ?>" class="btn btn-sm btn-danger">
-                        Hapus</a>
+                        Batalkan</a>
                 </td>
             </tr>
             <?php
