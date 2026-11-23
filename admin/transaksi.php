@@ -9,7 +9,7 @@ global $koneksi;
             <h4>Data Transaksi</h4>
         </div>
         <div class="panel-body">
-            <a href="transaksi_tambah.php" class="btn btn-xs btn-info pull-right">Tambah Transaksi</a>
+            <a href="transaksi_tambah.php" class="btn btn-s btn-info pull-right">Tambah Transaksi</a>
 
             <br><br>
             <table class="table table-bodered table-striped">

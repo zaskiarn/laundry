@@ -1,15 +1,26 @@
 <?php
+// Menghubungkan file index.php dengan database
 include 'koneksi.php';
 
+// Menentukan harga default laundry per kilogram
 $harga_per_kilo = 6000;
+
+// Mengambil data harga dari tabel harga di database
 $query_harga = mysqli_query($koneksi, "SELECT * FROM harga LIMIT 1");
+
+// Memeriksa apakah data harga berhasil ditemukan
 if ($query_harga && mysqli_num_rows($query_harga) > 0) {
+    // Mengambil data harga dalam bentuk array
     $data_harga = mysqli_fetch_assoc($query_harga);
+
+    // Memeriksa apakah kolom harga_per_kilo tersedia
     if (isset($data_harga['harga_per_kilo'])) {
-        $harga_per_kilo =$data_harga['harga_per_kilo'];
+        // Menggunakan harga dari database
+        $harga_per_kilo = $data_harga['harga_per_kilo'];
     }
 }
 
+// Mengambil maksimal 6 data nama dan alamat pelanggan dari database
 $query_pelanggan = mysqli_query($koneksi, "SELECT pelanggan_nama, pelanggan_alamat FROM pelanggan LIMIT 6");
 ?>
 
@@ -388,12 +399,16 @@ $query_pelanggan = mysqli_query($koneksi, "SELECT pelanggan_nama, pelanggan_alam
                 <p class="text-secondary">Beberapa dari banyak pelanggan setia yang telah mempercayakan pakaian mereka kepada kami.</p>
             </div>
             <div class="row g-4">
+                <!-- Memeriksa apakah data pelanggan tersedia -->
                 <?php if ($query_pelanggan && mysqli_num_rows($query_pelanggan) > 0): ?>
-                    <?php 
-                    $delay = 100;
-                    while ($pelanggan = mysqli_fetch_assoc($query_pelanggan)): 
-                        $inisial = strtoupper(substr($pelanggan['pelanggan_nama'], 0, 1));
-                    ?>
+
+                <!-- Menentukan nilai awal animasi -->
+                <?php $delay = 100;
+                    // Mengambil data pelanggan satu per satu
+                    while ($pelanggan = mysqli_fetch_assoc($query_pelanggan)): ?>
+
+                    <!-- Mengambil huruf pertama nama pelanggan dan mengubahnya menjadi huruf kapital -->
+                    <?php $inisial = strtoupper(substr($pelanggan['pelanggan_nama'], 0, 1)); ?>
                         <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="<?= $delay; ?>">
                             <div class="card card-custom p-4 h-100 d-flex flex-row align-items-center gap-3">
                                 <div class="avatar-box flex-shrink-0"><?= $inisial; ?></div>
@@ -410,10 +425,14 @@ $query_pelanggan = mysqli_query($koneksi, "SELECT pelanggan_nama, pelanggan_alam
                                 </div>
                             </div>
                         </div>
+
+                    <!-- Menambahkan jeda animasi untuk setiap data pelanggan -->
                     <?php 
                         $delay += 100;
                     endwhile; 
                     ?>
+
+                <!-- Menampilkan pesan jika belum ada data pelanggan -->
                 <?php else: ?>
                     <div class="col-12 text-center text-muted">
                         <p>Belum ada data pelanggan.</p>

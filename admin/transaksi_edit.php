@@ -19,6 +19,13 @@
                     $transaksi = mysqli_query($koneksi, "select * from transaksi where transaksi_id = '$id'");
                     while ($t = mysqli_fetch_array($transaksi)) {
                 ?>
+                <?php
+                    $pakaian_query = mysqli_query($koneksi, "select * from pakaian where transaksi_id = '$id'");
+                    $daftar_pakaian = [];
+                    while($row_p = mysqli_fetch_array($pakaian_query)) {
+                    $daftar_pakaian[] = $row_p;
+                    }
+                ?>
 
                 <form method = "post" action = "transaksi_update.php">
                     <div class = "form-group">
@@ -63,33 +70,23 @@
                             <th>Jenis Pakaian</th>
                             <th width ="20%">Jumlah</th>
                         </tr>
+                        <?php
+                            $jumlah_data = count($daftar_pakaian);
+                            $jml_baris = $jumlah_data > 6 ? $jumlah_data : 6;
+                            for ($i = 0; $i < $jml_baris; $i++) {
+                                $jenis = isset($daftar_pakaian[$i]) ? $daftar_pakaian[$i]['pakaian_jenis'] : '';
+                                $jumlah = isset($daftar_pakaian[$i]) ? $daftar_pakaian[$i]['pakaian_jumlah'] : '';
+                        ?>
                         <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
+                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control" value="<?php echo $jenis; ?>"></td>
+                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control" value="<?php echo $jumlah; ?>"></td>
                         </tr>
-                        <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><input type = "text" name="jenis_pakaian[]" class = "form-control"></td>
-                            <td><input type = "number" name="jumlah_pakaian[]" class = "form-control"></td>
-                        </tr>
-                        <table>
-                            <input type = "submit" class = "btn btn-primary"value = "Simpan">
+                        <?php
+                            }
+                        ?>
                         </table>
+                        <br>
+                        <input type = "submit" class = "btn btn-primary"value = "Simpan">
                 </form>
                 <?php
                     }
